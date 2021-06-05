@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.png">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Chat App</title>
+</head>
+<body>
+    <div class="chat">
+        <div class="chat__sidebar">
+        </div>
+        <div class="chat__main">
+            <div id='messages' class="chat__messages">
+            </div>
+
+            <div class="compose">
+                <form id="form">
+                    <input type="text" name="message" placeholder="Input message...">
+                    <button class='glow-on-hover'>Send</button>
+                </form>
+                <button id='location' class='glow-on-hover'>Share Location</button>
+            </div> 
+        </div>
+    </div>
+    
+    <script id='event-template' type='text/html'>
+        <div class="event">
+            {{message}}
+        </div>
+    </script>
+
+    <script id='message-template' type='text/html'>
+        <div class="message">
+            <p>
+                <span class="message__name">{{username}}</span>
+                <span class="message__meta">{{timestamp}}</span>
+            </p>
+            <p class='text'>{{message}}</p>
+        </div>
+    </script>
+
+    <script id='location-template' type='text/html'>
+        <div>
+            <p class="message__name">{{username}}</p>
+            <p class="message__meta">{{timestamp}}</p>
+            <a href={{location}} target="#" class='link'>location link</a>
+        </div>
+    </script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./js/index.js"></script>
+</html>
