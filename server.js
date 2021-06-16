@@ -44,6 +44,7 @@ io.on('connection', (socket)=>{
         
         if(message == '')
             return callback('Write some text')
+
         if(filter.isProfane(message))
             return callback('Profanity not allowed')
 

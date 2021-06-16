@@ -29,11 +29,20 @@ socket.on('event', (message)=>{
     messages.insertAdjacentHTML('beforeend', html) 
 })
 
-socket.on('message',({message,timestamp,username})=>{
+socket.on('message',({message,timestamp,score,username})=>{
 
+    if(score>0)
+        score = "happy"
+    else if(score<0)
+        score = 'angry'
+    else
+        score = "neutral"
+
+    console.log(score)
     const html = Mustache.render(messagetemplate, {
         message,
         timestamp : moment(timestamp).format('h:mm a'),
+        score,
         username
     })
     messages.insertAdjacentHTML('beforeend', html)

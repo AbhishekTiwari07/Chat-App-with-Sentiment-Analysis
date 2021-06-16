@@ -58,6 +58,18 @@ button:disabled {
 
 /* Join Page Styles */
 
+.happy::before {
+    content: "\01F600";
+}
+
+.angry::before {
+    content: "\01F620";
+}
+
+.neutral::before {
+    content: "\01F610";
+}
+
 .centered-form {
     background: #333744;
     width: 100vw;
